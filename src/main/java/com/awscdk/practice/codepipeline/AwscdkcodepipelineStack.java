@@ -33,10 +33,10 @@ public class AwscdkcodepipelineStack extends Stack {
                                 "npm install -g aws-cdk"   // Commands to run before build
                         ))
                  .commands(List.of(
-                                "mvn package"// Language-specific build commands
+                                "mvn package",            // Language-specific build commands
+                                "npx cdk synth"           // Synth command (always same)
                         ))
-                 .build())
-                
+                 .primaryOutputDirectory("src/cdk.out").build())
                 .build();
     } 
 }
